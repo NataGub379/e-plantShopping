@@ -6,6 +6,7 @@ import './CartItem.css';
 const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
+  
 
   const calculateTotalAmount = () => {
     return cart.reduce((total, item) => {
@@ -44,6 +45,10 @@ const CartItem = ({ onContinueShopping }) => {
   const calculateTotalCost = (item) => {
     const price = parseFloat(item.cost.replace('$', ''));
     return price * item.quantity;
+  };
+
+  const handleCheckoutShopping = () => {
+    alert("Coming Soon!");
   };
 
   return (
@@ -98,12 +103,23 @@ const CartItem = ({ onContinueShopping }) => {
 
       <div style={{ marginTop: '20px', color: 'black' }} className="total_cart_amount"></div>
 
+      {/* ✅ ВИПРАВЛЕНИЙ БЛОК */}
       <div className="continue_shopping_btn">
-        <button className="get-started-button" onClick={handleContinueShopping}>
+        <button
+          className="get-started-button"
+          onClick={(e) => handleContinueShopping(e)}
+        >
           Continue Shopping
         </button>
+
         <br />
-        <button className="get-started-button1">Checkout</button>
+
+        <button
+          className="get-started-button1"
+          onClick={handleCheckoutShopping}
+        >
+          Checkout
+        </button>
       </div>
     </div>
   );
