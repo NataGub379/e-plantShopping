@@ -250,3 +250,21 @@ body {
         text-align: center; /* Align text to the center */
       }
   }
+  .cart {
+    position: relative;
+  }
+  
+  .cart-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: white;
+    color: green;
+    border-radius: 50%;
+    font-size: 16px;
+    padding: 2px 6px;
+  }
+  .product-button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
